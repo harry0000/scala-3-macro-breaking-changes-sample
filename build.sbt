@@ -66,6 +66,7 @@ lazy val infra = (project in file("infra"))
   .settings(
     commonSettings,
     libraryDependencies ++= Seq(
+      "com.lihaoyi" %% "sourcecode" % "0.4.2",
       "org.scalameta" %% "munit" % "1.0.0" % Test
     )
   )

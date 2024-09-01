@@ -5,9 +5,11 @@ import scala.concurrent.ExecutionContext
 class ExtensionSuite extends munit.FunSuite {
   implicit val ec: ExecutionContext = ExecutionContext.global
 
-  test("return caller class & method name") {
-    val repository = new EntityRepositoryImpl()
+  class Repository extends EntityRepositoryImpl with ExtensionBase with Extension
 
-    assertEquals(repository.list(), "EntityRepositoryImpl#list")
+  test("return caller class & method name") {
+    val repository = new Repository()
+
+    assertEquals(repository.list(), "io.github.harry0000.EntityRepositoryImpl#list")
   }
 }

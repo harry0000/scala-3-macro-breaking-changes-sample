@@ -8,7 +8,7 @@ class TableExtension[E](private val table: Table[E]) {
 class EntityTable extends Table[Entity]
 
 class EntityRepositoryImpl extends EntityRepository {
-  import Extension.*
+  this: Extension =>
 
   private val table: EntityTable = new EntityTable
 
